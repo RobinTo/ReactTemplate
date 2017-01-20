@@ -1,9 +1,15 @@
 import React     from 'react';
-import { Route } from 'react-router';
+import { Match, Miss } from 'react-router';
 import App from './components';
 import Home from './components/Home';
-export default (
-  <Route name="app" component={App} path="/">
-    <Route component={Home} path="home" />
-  </Route>
-);
+
+export default class RouterApp extends React.Component {
+  render() {
+    return (
+      <div id="my-app-routes">
+        <Match pattern="/" component={App} />
+        <Match exactly pattern="/home" component={Home} />
+      </div>
+    );
+  }
+}

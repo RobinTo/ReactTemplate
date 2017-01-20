@@ -1,12 +1,12 @@
 import React       from 'react';
 import { render }  from 'react-dom';
-import { Router, browserHistory  }  from 'react-router';
-import routes from '../universal/routes';
+import RouterApp from '../universal/routes';
 
 import { createStore, combineReducers } from 'redux';
 import { Provider }                     from 'react-redux';
 import * as reducers                    from '../universal/reducers';
 import { fromJS }                       from 'immutable';
+import Router from 'react-router/BrowserRouter'
 
 let initialState = window.__INITIAL_STATE__;
 
@@ -19,9 +19,12 @@ Object
    });
 const reducer = combineReducers(reducers);
 const store   = createStore(reducer, initialState, window.devToolsExtension && window.devToolsExtension());
+console.log("Rendering react app");
 render(
   <Provider store={store}>
-      <Router children={routes} history={browserHistory} />
+    <Router>
+      <RouterApp />
+    </Router>
   </Provider>,
   document.getElementById('react-view')
 );
