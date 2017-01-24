@@ -5,14 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "node --harmony .",
-    "dev": "npm run start",
+    "prodpack": "webpack --config webpack.prod.config.js",
     "pack": "webpack-dev-server --progress --color --config webpack.config.js",
     "lint": "eslint universal",
-    "initlint": "eslint --init",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/setup.js test/*.jsx"
   },
   "pre-commit": [
-    "lint"
+    "lint",
+    "test"
   ],
   "author": "Robin Tollisen <robin.tollisen@gmail.com> (robin.tollisen.net)",
   "license": "ISC",
@@ -25,16 +25,22 @@
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.11.1",
     "babel-register": "^6.11.6",
+    "chai": "^3.5.0",
     "css-loader": "^0.23.1",
+    "enzyme": "^2.7.1",
     "eslint": "^3.13.1",
     "eslint-config-airbnb": "^14.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^3.0.2",
     "eslint-plugin-react": "^6.9.0",
     "express": "^4.14.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "jsdom": "^9.9.1",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
+    "mocha": "^3.2.0",
     "pre-commit": "^1.2.2",
+    "react-addons-test-utils": "^15.4.2",
     "react-hot-loader": "^1.3.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1",

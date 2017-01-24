@@ -12,8 +12,10 @@ export default class Home extends React.Component {
 
     return (
       <div id="listItem-list">
+
         <ListItemView listItems={listItems}
           {...bindActionCreators(ListItemActions, dispatch)} />
+
         <ListItemForm
           {...bindActionCreators(ListItemActions, dispatch)} />
       </div>

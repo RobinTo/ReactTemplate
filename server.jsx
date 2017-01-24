@@ -70,6 +70,7 @@ export default function run() {
               <script type="application/javascript">
                 window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
               </script>
+              <link rel="stylesheet" href="./styles.css" />
             </head>
             <body>
               <div id="react-view">${markup}</div>
@@ -79,6 +80,7 @@ export default function run() {
       `
 
       res.write(HTML)
+      console.log("Server side rendering performed.");
       res.end()
     }
   }).listen(3000)
